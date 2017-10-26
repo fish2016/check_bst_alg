@@ -123,3 +123,14 @@ func CreateBinTree(arr []int) *Tree {
 
 	return &tree
 }
+
+func PostOrderTraverse(node *Node, action func(node *Node)) {
+	if node == nil {
+		return
+	}
+
+	PostOrderTraverse(node.pLeft, action)
+	PostOrderTraverse(node.pRight, action)
+	action(node)
+
+}
